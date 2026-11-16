@@ -3,5 +3,12 @@
   "name": "firelens-2m2a",
   "main": "dist/server/index.js",
   "compatibility_date": "2026-11-15",
-  "build": { "command": "npm run build" }
+  "workers_dev": true,
+  "vars": {
+    "LLM_PROVIDER": "vt-arc",
+    "ARC_MODEL": "gpt-oss-120b"
+  },
+  "build": {
+    "command": "npm run build"
+  }
 }
