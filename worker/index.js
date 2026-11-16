@@ -16,7 +16,7 @@ async function generateExplanation(config,pack,schema,fetchImpl){
  const response=await fetchImpl(arc?'https://llm-api.arc.vt.edu/api/v1/chat/completions':'https://api.openai.com/v1/responses',{
   method:'POST',headers:{authorization:'Bearer '+config.key,'content-type':'application/json'},body:JSON.stringify(payload),signal:AbortSignal.timeout(60000)
  });
- if(!response.ok)throw Error('Model service unavailable');
+ if(!response.ok)throw Object.assign(new Error('Model service unavailable'),{httpStatus:response.status});
  const result=await response.json();
  const text=arc?result.choices?.[0]?.message?.content:(result.output||[]).flatMap(x=>x.content||[]).filter(x=>x.type==='output_text').map(x=>x.text).join('');
  if(typeof text!=='string')throw Error('Missing model answer');
@@ -51,7 +51,14 @@ export function createApp(assets,records,experiments,{fetchImpl=fetch}={}){const
   try{const answer=await generateExplanation(config,pack,schema,fetchImpl);
    if(!validAnswer(answer,new Set(sourceIds))||!numbersSupported(answer,pack))return j({mode:'evidence',message:'The answer did not pass citation validation. Showing source evidence instead.',sources:pack.sources,datasets:pack.datasets});
    return j({mode:'ai',provider:config.provider,model:config.model,answer,sources:[...pack.sources,...pack.datasets.map(s=>({id:s.id,title:s.title,url:s.url,summary:s.retained_tests+' retained test rows. DOI '+s.doi+'. '+s.method}))]});
-  }catch{return j({mode:'evidence',message:'Live explanation unavailable. Source evidence remains available.',sources:pack.sources,datasets:pack.datasets});}
+  }catch(error){
+   const detail=Number.isInteger(error?.httpStatus)?'Model service returned HTTP '+error.httpStatus+'.'
+    :['TimeoutError','AbortError'].includes(error?.name)?'Model request timed out.'
+    :error instanceof SyntaxError?'Model response was not valid JSON.'
+    :error?.message==='Missing model answer'?'Model response contained no answer text.'
+    :'Could not connect to the model service.';
+   return j({mode:'evidence',message:'Live explanation unavailable. '+detail,sources:pack.sources,datasets:pack.datasets});
+  }
  }
  const asset=assets[path==='/'?'/index.html':path];if(!asset)return new Response('Not found',{status:404});if(!['GET','HEAD'].includes(request.method))return new Response('Method not allowed',{status:405});
  const bytes=Uint8Array.from(atob(asset.base64),c=>c.charCodeAt(0));return new Response(request.method==='HEAD'?null:bytes,{headers:{'content-type':asset.type,'cache-control':'public, max-age=60','x-content-type-options':'nosniff','referrer-policy':'strict-origin-when-cross-origin'}});
