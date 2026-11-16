@@ -1,0 +1,8 @@
+import {readFileSync,writeFileSync,mkdirSync,readdirSync,rmSync,existsSync} from 'node:fs';
+import path from 'node:path';import vm from 'node:vm';
+const ctx={};vm.createContext(ctx);vm.runInContext(readFileSync('public/data.js','utf8')+';globalThis.records=RECORDS',ctx);
+const assets={},types={'.pdf':'application/pdf','.pptx':'application/vnd.openxmlformats-officedocument.presentationml.presentation','.txt':'text/plain; charset=utf-8','.html':'text/html; charset=utf-8','.mjs':'text/javascript','.js':'text/javascript; charset=utf-8','.css':'text/css; charset=utf-8','.json':'application/json; charset=utf-8','.csv':'text/csv; charset=utf-8','.md':'text/markdown; charset=utf-8','.ttf':'font/ttf','.zip':'application/zip','.jpg':'image/jpeg'};
+function walk(dir){for(const entry of readdirSync(dir,{withFileTypes:true})){const file=path.join(dir,entry.name);if(entry.isDirectory())walk(file);else assets['/'+path.relative('public',file).split(path.sep).join('/')]={base64:readFileSync(file).toString('base64'),type:types[path.extname(file)]||'application/octet-stream'};}}walk('public');
+rmSync('dist',{recursive:true,force:true});mkdirSync('dist/server',{recursive:true});mkdirSync('dist/.openai',{recursive:true});
+let code=readFileSync('worker/index.js','utf8');code+='\nconst assets='+JSON.stringify(assets)+';\nconst records='+JSON.stringify(ctx.records)+';\nconst experiments='+readFileSync('public/experiments.json','utf8')+';\nexport default createApp(assets,records,experiments);\n';writeFileSync('dist/server/index.js',code);if(existsSync('.openai/hosting.json'))writeFileSync('dist/.openai/hosting.json',readFileSync('.openai/hosting.json'));
+console.log('Worker built:',Object.keys(assets).length,'assets;',ctx.records.length,'source summaries');

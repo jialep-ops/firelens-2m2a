@@ -1,0 +1,57 @@
+{
+  "challenge": "Flame in Freefall",
+  "year": 2026,
+  "provenance": "Full official challenge Details and NASA Data & Resources list supplied by participant on November 15, 2026. Links copied from supplied list. Direct official page retrieval unavailable in this session.",
+  "resources": [
+    {
+      "title": "PSI Data Repository: Combustion Science",
+      "url": "https://psi.nasa.gov/physci/repo/search?q=combustion",
+      "use": "Used: primary source for the seven experimental datasets."
+    },
+    {
+      "title": "NASA Combustion Science",
+      "url": "https://www.nasa.gov/glenn/glenn-expertise-space-exploration/physical-sciences-program/combustion-science/",
+      "use": "Listed background resource. Not ingested as experimental measurements."
+    },
+    {
+      "title": "NASA ScienceCasts: The Power of Studying Combustion on the ISS",
+      "url": "https://www.youtube.com/watch?v=W1oXykoz9zg",
+      "use": "Listed video. External viewing link."
+    },
+    {
+      "title": "A Researcher\u2019s Guide to International Space Station Combustion Science",
+      "url": "https://www.nasa.gov/missions/station/a-researchers-guide-to-combustion-science/",
+      "use": "Listed research guide. External reading link."
+    },
+    {
+      "title": "Apollo 1",
+      "url": "https://sma.nasa.gov/sma-disciplines/accllp/apollo-1",
+      "use": "Listed historical context. External reading link."
+    },
+    {
+      "title": "Apollo 13",
+      "url": "https://sma.nasa.gov/sma-disciplines/accllp/apollo-13",
+      "use": "Listed historical context. External reading link."
+    },
+    {
+      "title": "25 Years Ago: Fire Aboard Space Station Mir",
+      "url": "https://www.nasa.gov/history/25-years-ago-fire-aboard-space-station-mir/",
+      "use": "Listed historical context. External reading link."
+    },
+    {
+      "title": "Fireman\u2019s Air Tanks",
+      "url": "https://spinoff.nasa.gov/node/9582",
+      "use": "Listed Earth application. External reading link."
+    },
+    {
+      "title": "Fire Detector",
+      "url": "https://spinoff.nasa.gov/node/9407",
+      "use": "Listed Earth application. External reading link."
+    },
+    {
+      "title": "New Technology for the Fire Attire",
+      "url": "https://spinoff.nasa.gov/node/9918",
+      "use": "Listed Earth application. External reading link."
+    }
+  ]
+}

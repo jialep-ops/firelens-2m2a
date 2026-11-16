@@ -1,0 +1,42 @@
+{
+  "accession": "PSI-98",
+  "title": "Spacecraft Fire Safety Experiment-I",
+  "doi": "10.60555/0t15-1z43",
+  "version": 4,
+  "objective": "The objectives of this investigation were to:\n(1) determine how rapidly a large scale fire grows in low-gravity and (2) investigate the low-g flammability limits compared to those obtained in NASA\u2019s normal\ngravity material flammability screening test.",
+  "approach": "The Saffire-1 experiments was performed on the Orbital Science\u2019s Cygnus resupply vehicle after it deberthed from the ISS. The sample material for Saffire-I is a composite fabric called Sibal consisting of cotton on a fiberglass substrate (75% cotton, 25% fiberglass by weight). It has been used in many space experiments because it burns like cotton but maintains structural integrity after the cotton is consumed. The sample was approximately 0.94 meters long and 0.4 meters wide, simulating a large piece of flammable fabric. The Saffire-1 flight unit had a sample card installed in the middle of a large flow duct. Air is drawn through the flow duct by fans located at the top of the duct with flow straighteners at the bottom of the experiment module. Saffire-I was conducted at an air flow velocity of 20 cm/s. Once the sample was ignited flame images were captured using two cameras. In addition, thermocouples provided flow, flame, and plume temperatures, two radiometers recorded flame radiation, solid state sensors were used to measure pressure, CO2 and O2 mole faction, and two anemometer tracked flow velocity. All data was compressed, and subsequently downlinked.",
+  "description": "",
+  "hypothesis": "This investigation hypothesizes that due to large differences between fire behavior in normal and reduced gravity, the use of terrestrial fires and fire standards to design spacecraft fire safety systems presents an inherent risk to the vehicle because of the significant level of uncertainty. While this approach has been successful thus far, the uncertainty and risk will increase as exploration missions venture further from earth with considerably longer transit times for a safe return. There is a significant lack of microgravity data available for spacecraft designers on which to base their fire safety designs and procedures. To address this knowledge gap, this investigation proposed to conduct large-scale fire safety experiments in an expendable spacecraft without risk to a crew.",
+  "researchArea": "Combustion Science",
+  "licenseIdentifier": "CC0-1.0",
+  "licenseName": "Creative Commons Zero v1.0 Universal",
+  "experimentalTable": [
+    {
+      "_id": {
+        "$oid": "6792c46eb7b6ff8e65037f3e"
+      },
+      "date_created": {
+        "$date": 1737671790269
+      },
+      "date_modified": {
+        "$date": 1737671790269
+      },
+      "file_name": "PSI-98_Experimental table_SAFFIRE-1.csv",
+      "file_size": 469,
+      "remote_path": "/Home/psi-data/PSI-98/Experimental table/PSI-98_Experimental table_SAFFIRE-1.csv",
+      "remote_url": "/datamanager/file/Home/psi-data/PSI-98/Experimental table/PSI-98_Experimental table_SAFFIRE-1.csv",
+      "resource_id": {
+        "$oid": "66cf53d46f1142c964b2e0a8"
+      },
+      "restricted": false,
+      "s3_path": "psi-data/PSI-98/Experimental table/PSI-98_Experimental table_SAFFIRE-1.csv",
+      "s3_version_id": "_eNG2ATl_BkM8A7pV_lFCVUo5ptKZk3G",
+      "study_id": {
+        "$oid": "683f4a58746db1c87dcebf3d"
+      },
+      "subcategory": "",
+      "version": 1,
+      "visible": true
+    }
+  ]
+}

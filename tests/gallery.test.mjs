@@ -1,0 +1,4 @@
+import {test} from 'node:test';import assert from 'node:assert/strict';import {WINGS,walkable,findPath} from '../public/gallery-world.mjs';
+test('every unlocked exhibit is reachable from the atrium',()=>{for(let i=0;i<3;i++){let completed=WINGS.slice(0,i).map(w=>w.id);for(let e of WINGS[i].exhibits){let path=findPath({x:576,y:656},e.stand,completed);assert.ok(path.length>0,e.id);assert.deepEqual(path.at(-1),e.stand);assert.ok(path.every(p=>walkable(p.x,p.y,completed)));}}});
+test('later wings unlock in quest order',()=>{assert.equal(walkable(576,200,[]),false);assert.equal(walkable(576,200,['flame']),true);assert.equal(walkable(944,200,['flame']),false);assert.equal(walkable(944,200,['flame','cabin']),true);});
+test('paths do not cross display plinths or leave the gallery',()=>{assert.equal(walkable(576,510,[]),false);assert.equal(walkable(5,5,[]),false);assert.equal(findPath({x:576,y:656},{x:5,y:5},[]).length,0);});

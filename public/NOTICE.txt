@@ -1,0 +1,7 @@
+FireLens: The Research Gallery
+Copyright 2026 Team 2M2A
+
+Original application code, pixel drawings and original pixel fonts are licensed under the Apache License, Version 2.0. See LICENSE.
+NASA PSI datasets retain the CC0-1.0 license recorded in their investigation metadata. Their titles, DOIs, original files and hashes are listed in public/data-provenance.json.
+NASA reports, linked webpages and external videos retain their own source notices. No NASA photographs, logos, report PDFs or third-party fonts are bundled. NASA does not endorse this project.
+ChatGPT assisted research, programming, data normalization, visual design, verification and drafting. Full source and tool credits: public/credits.md.
